@@ -3,9 +3,6 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
-
 module.exports = () => {
   return {
     mode: 'development',
@@ -20,33 +17,33 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        filename: 'index.html',
-        inject: 'head',
-        scriptLoading: 'defer',
       }),
       new WebpackPwaManifest({
-        name: 'J.A.T.E.',
+        fingerprints: false,
+        inject: true,
+        name: 'JATE Text Editor',
         short_name: 'JATE',
-        description: 'Just Another Text Editor',
-        background_color: '#01579b',
+        description: 'A simple text editor that runs in the browser',
+        background_color: '#ffffff',
         crossorigin: 'use-credentials',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('icons'),
           },
-    ],
+        ],
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
     ],
 
     module: {
       rules: [
         {
-          test: /\.css$/i,
+          test: /\.css$/,
           use: ['style-loader', 'css-loader'],
         },
         {
@@ -56,6 +53,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime'],
             },
           },
         },
