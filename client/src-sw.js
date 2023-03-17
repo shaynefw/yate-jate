@@ -19,16 +19,16 @@ const pageCache = new CacheFirst({
   ],
 });
 
-warmStrategyCache({
-  urls: ['/index.html', '/'],
-  strategy: pageCache,
-});
+// warmStrategyCache({
+//   urls: ['/index.html', '/'],
+//   strategy: pageCache,
+// });
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
+// Implement asset caching
 const assetCache = new CacheFirst({
-  cacheName: 'asset-cache',
+  cacheName: 'assets-cache',
   plugins: [
     new CacheableResponsePlugin({
       statuses: [0, 200],
@@ -38,7 +38,8 @@ const assetCache = new CacheFirst({
     }),
   ],
 });
+
 registerRoute(
-  ({ request }) => request.destination === 'style' || request.destination === 'script' || request.destination === 'image',
+  ({ request }) =>['style', 'script', 'worker', 'images'].includes(request.destination),
   assetCache
 );
