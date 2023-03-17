@@ -2,6 +2,8 @@
       
 ## Description
 
+JATE is a simple, browser-based text editor designed to provide a convenient and intuitive environment for writing and editing code. With support for syntax highlighting and a sleek interface, JATE is perfect for quick edits and programming on-the-go.
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -12,14 +14,36 @@
 ## Installation
 
 - [Project repo](https://github.com/shaynefw/yate-jate)
-- [Project deployed link](https://shaynefw.github.io/yate-jate/)
+- [Project deployed link](https://yate-jate.herokuapp.com/)
 - [Project Video Demo]()
+
+1. Clone the repository: 
+    ```bash
+    git clone https://github.com/shaynefw/yate-jate.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd yate-jate
+    ```
+
+3. Install dependencies for both server and client:
+    ```bash
+    npm run install 
+    ```
+4. To run the app in development mode, use the following command:
+    ```bash
+    npm run start:dev
+    ```
+5. The app will be available at http://localhost:3001.
 
 ## Usage
 
-![screenShot]()
+![screenShot](./public/assets/images/ss.png)
 
 ## Credits
+
+Credits to my professor, instructors, classmates, and tutors for their invaluable support and guidance throughout my learning journey. Also to the developers of the various technologies used, including Google, documentation resources, and AI technologies that have provided valuable assistance and inspiration.
 
 ## License
 
@@ -47,11 +71,18 @@ SOFTWARE.
 
 ## Badges
 
-![HTML](https://img.shields.io/badge/HTML-NUMBER%25-orange)
-![CSS](https://img.shields.io/badge/CSS-NUMBER%25-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-NUMBER%25-yellow)
+![HTML](https://img.shields.io/badge/HTML-9%25-orange)
+![CSS](https://img.shields.io/badge/CSS-23%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-66%25-yellow)
 
 ## Features
+
+- Lightweight and fast
+- Syntax highlighting for JavaScript
+- Monokai theme for improved readability
+- Line numbers and line wrapping
+- Auto-save feature with localStorage and IndexedDB
+- Progressive Web App (PWA) support for offline usage
 
 ## How to Contribute
 
